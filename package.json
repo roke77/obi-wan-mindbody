@@ -1,0 +1,14 @@
+{
+  "name": "obi-wan-mindbody",
+  "version": "1.0.0",
+  "description": "A MindBody API client",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "mindbody"
+  ],
+  "author": "Roque Alejandro Cuello",
+  "license": "ISC"
+}
