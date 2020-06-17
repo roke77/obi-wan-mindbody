@@ -1,7 +1,7 @@
 import getClientMemberships from './getClientMemberships'
 import getClientsByEmail from './getClientsByEmail'
 
-const isUserActiveMember = async (apiClient, email) => {
+const isUserActiveMember = apiClient => async email => {
   const clients = await getClientsByEmail({ apiClient, email })
 
   const client = clients.find(
