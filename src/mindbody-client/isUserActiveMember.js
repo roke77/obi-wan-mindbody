@@ -1,8 +1,8 @@
 import getClientMemberships from './getClientMemberships'
 import getClientsByEmail from './getClientsByEmail'
 
-const buildIsUserActiveMember = mbClient => async email => {
-  const clients = await getClientsByEmail({ mbClient, email })
+const isUserActiveMember = async (apiClient, email) => {
+  const clients = await getClientsByEmail({ apiClient, email })
 
   const client = clients.find(
     ({ Email, Status }) => Email === email && Status === 'Active'
@@ -11,7 +11,7 @@ const buildIsUserActiveMember = mbClient => async email => {
   if (!client) return false
 
   const clientMemberships = await getClientMemberships({
-    mbClient,
+    apiClient,
     clientId: client.Id
   })
 
@@ -22,4 +22,4 @@ const buildIsUserActiveMember = mbClient => async email => {
   return activeMemberships.length > 0
 }
 
-export default buildIsUserActiveMember
+export default isUserActiveMember

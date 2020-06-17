@@ -1,12 +1,12 @@
-const addAuthorizationHeaders = async (axios, { username, password }) => {
-  const response = await axios.post('/usertoken/issue', {
+const addAuthorizationHeaders = async (apiClient, { username, password }) => {
+  const response = await apiClient.post('/usertoken/issue', {
     Username: username,
     Password: password
   })
   const { AccessToken } = response.data
-  axios.defaults.headers.common['Authorization'] = AccessToken
+  apiClient.defaults.headers.common['Authorization'] = AccessToken
 
-  return axios
+  return apiClient
 }
 
 export default addAuthorizationHeaders

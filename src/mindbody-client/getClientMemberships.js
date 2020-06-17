@@ -1,10 +1,10 @@
 const ENDPOINT = 'client/activeclientmemberships'
 
-const getClientMemberships = async ({ mbClient, clientId }) => {
+const getClientMemberships = async ({ apiClient, clientId }) => {
   const queryConfig = {
     params: { ClientId: clientId }
   }
-  const response = await mbClient.get(ENDPOINT, queryConfig)
+  const response = await apiClient.get(ENDPOINT, queryConfig)
 
   return response.data.ClientMemberships
 }
