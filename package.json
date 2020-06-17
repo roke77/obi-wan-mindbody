@@ -2,9 +2,15 @@
   "name": "obi-wan-mindbody",
   "version": "1.0.0",
   "description": "A MindBody API client",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "npx babel src --out-dir dist",
+    "start": "npx babel src --watch --out-dir dist",
     "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roke77/obi-wan-mindbody.git"
   },
   "keywords": [
     "mindbody"
