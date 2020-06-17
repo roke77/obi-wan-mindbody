@@ -4,11 +4,22 @@
   "description": "A MindBody API client",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "jest"
   },
   "keywords": [
     "mindbody"
   ],
   "author": "Roque Alejandro Cuello",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/node": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "jest": "^26.0.1",
+    "standard": "^14.3.4"
+  },
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
 }
