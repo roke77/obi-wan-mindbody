@@ -1,14 +1,20 @@
-import mindbodyHttpClient from './mindbody-client/httpClient'
-import addAuthorizationHeaders from './mindbody-client/authorization'
-import buildIsUserActiveMember from './mindbody-client/isUserActiveMember'
+import { flow } from 'lodash'
+import BaseClient from './classes/BaseClient'
+import AuthenticationMixin from './mixins/AuthenticationMixin'
+import ClientsMixin from './mixins/ClientsMixin'
+import APIError from './errors/APIError'
+import NetworkError from './errors/NetworkError'
+import RequestError from './errors/RequestError'
 
-const createSiteClient = async args => {
-  const defaultClient = mindbodyHttpClient(args)
-  const authorizedClient = await addAuthorizationHeaders(defaultClient, args)
+const applyMixins = flow(
+  AuthenticationMixin,
+  ClientsMixin
+)
+const MindbodyClient = applyMixins(BaseClient)
 
-  return {
-    isUserActiveMember: buildIsUserActiveMember(authorizedClient)
-  }
+export {
+  MindbodyClient as default,
+  APIError,
+  NetworkError,
+  RequestError
 }
-
-export default createSiteClient
